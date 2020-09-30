@@ -29,7 +29,7 @@ Parameters in the `body` of the `POST Request`
 
 ```json
 {
-  "avatarUrl":"https://lh3.googleusercontent.com/a-/AOh14GhnQ6aJ2YnaevyJzhii-qGws6Y17w-cwWLqF5iP"
+  "avatarUrl":"https://lh3.googleusercontent.com/a-/AOh14GhnQ6aJ2YnaevyJzhii-qGws6Y17w-cwWLqF5iP",
   "name": "Mia Do",
   "email": "mia2@cs.vn",
   "password": "123"
@@ -120,11 +120,7 @@ An access token in the header's authorization is required. The user's info will 
 **Example**
 
 ```json
-{
-  ...
-  Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjU2Mjk3YTY4Yjg4NDI3NjhkZGI4M2UiLCJpYXQiOjE2MDEyODQ5MjcsImV4cCI6MTYwMTM3MTMyN30.fYoXxmx5cV4YrEhRvoze63yWvfeJIRnGskWCwRfr4JQ"
-  ...
-}
+Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjU2Mjk3YTY4Yjg4NDI3NjhkZGI4M2UiLCJpYXQiOjE2MDEyODQ5MjcsImV4cCI6MTYwMTM3MTMyN30.fYoXxmx5cV4YrEhRvoze63yWvfeJIRnGskWCwRfr4JQ"
 ```
 
 **Response**
