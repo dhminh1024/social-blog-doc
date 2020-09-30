@@ -15,7 +15,7 @@ In the end, you will have a project structure like this:
   |- src\
     |- components\
       |- BlogCard.js
-      |- ParginationBar.js
+      |- PaginationBar.js
       |- ReactionList.js
       |- ReviewForm.js
       |- ReviewList.js

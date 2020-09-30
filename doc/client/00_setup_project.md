@@ -11,6 +11,7 @@ $ npm i --save react-router-dom
 $ npm i --save bootstrap react-bootstrap
 $ npm i --save react-markdown react-spinners moment react-moment
 $ npm i --save axios uuid react-toastify
+$ npm i --save @fortawesome/fontawesome-svg-core @fortawesome/free-brands-svg-icons @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
 ```
 
 - **Remove everything in the folder `/src`**, or delete it and create a new one.
@@ -54,6 +55,7 @@ export default App;
   REACT_APP_BACKEND_API="https://social-blog-cs.herokuapp.com"
   ```
   **Add** `.env` to the `.gitignore` file
+  **Note**: everytime you change something in `.env` you have to restart the app (`npm start`)
 
 - Run `npm start` in the terminal. You should see "My new React App" in a "bootstrap" font:
 

@@ -32,8 +32,14 @@ https://social-blog-cs.herokuapp.com
 
 Let's get started:
 
+**Project setup**
+
 * [Setup a React App](/doc/client/00_setup_project.md)
 * [Project Structure](/doc/client/01_project_structure.md)
 * [Redux configuration](/doc/client/02_redux_config.md)
 * [React Router and layouts](/doc/client/03_routes_layouts.md)
+
+**Main Features**
+
+* [User can see a list of blogs in the home page](/doc/client/04_get_blogs.md)
 
