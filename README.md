@@ -33,6 +33,7 @@ https://social-blog-cs.herokuapp.com
 Let's get started:
 
 * [Setup a React App](/doc/client/00_setup_project.md)
-* [Project Structure](/doc/01_project_structure.md)
-* [Redux configuration](/doc/02_redux_config.md)
+* [Project Structure](/doc/client/01_project_structure.md)
+* [Redux configuration](/doc/client/02_redux_config.md)
+* [React Router and layouts](/doc/client/03_routes_layouts.md)
 
