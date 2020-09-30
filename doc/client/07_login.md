@@ -1,4 +1,4 @@
-## Authentication
+## Authentication - Log in
 
 User can log in with an account.
 
