@@ -4,7 +4,7 @@ User can log in with an account.
 
 ### Action and reducer
 
-- In `src/redux/constants/auth.constant.js`, add:
+- In `src/redux/constants/auth.constants.js`, add:
   ```javascript
   //...
   export const LOGIN_REQUEST = "AUTH.LOGIN_REQUEST";

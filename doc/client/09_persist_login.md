@@ -4,7 +4,7 @@ Now if you refersh the browser, you will have to log in again. Let's persist the
 
 ### Action and reducer
 
-- In `src/redux/constants/auth.constant.js`, add:
+- In `src/redux/constants/auth.constants.js`, add:
   ```javascript
   //...
   export const GET_CURRENT_USER_REQUEST = "AUTH.GET_CURRENT_USER_REQUEST";

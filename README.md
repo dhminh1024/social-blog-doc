@@ -48,4 +48,5 @@ Let's get started:
 * [User can log in with an account](/doc/client/07_login.md)
 * [User can log out](/doc/client/08_logout.md)
 * [Persist login state on refresh](/doc/client/09_persist_login.md)
+* [The Blog Detail Page](/doc/client/10_blog_detail.md)
 

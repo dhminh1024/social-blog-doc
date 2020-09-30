@@ -4,7 +4,7 @@ User can register a new account.
 
 ### Action and reducer
 
-- In `src/redux/constants/auth.constant.js`:
+- In `src/redux/constants/auth.constants.js`:
   ```javascript
   export const REGISTER_REQUEST = "AUTH.REGISTER_REQUEST";
   export const REGISTER_SUCCESS = "AUTH.REGISTER_SUCCESS";

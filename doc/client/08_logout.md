@@ -6,7 +6,7 @@ User can log out.
 
 We should tell the server that the user want to logout. But keep it simple for now by removing user info and access token in the front-end side.
 
-- In `src/redux/constants/auth.constant.js`, add:
+- In `src/redux/constants/auth.constants.js`, add:
   ```javascript
   //...
   export const LOGOUT = "AUTH.LOGOUT";
