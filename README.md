@@ -45,4 +45,5 @@ Let's get started:
 * [User can see a list of blogs in the home page](/doc/client/04_get_blogs.md)
 * [Redirect on successful async redux action](/doc/client/05_redirect_to.md)
 * [User can register a new account](/doc/client/06_register.md)
+* [User can log in with an account](/doc/client/07_login.md)
 

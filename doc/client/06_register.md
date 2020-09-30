@@ -38,10 +38,8 @@ User can register a new account.
     switch (type) {
       case types.REGISTER_REQUEST:
         return { ...state, loading: true };
-
       case types.REGISTER_SUCCESS:
         return {...state, loading: false };
-
       case types.REGISTER_FAILURE:
         return { ...state, loading: false };
 
