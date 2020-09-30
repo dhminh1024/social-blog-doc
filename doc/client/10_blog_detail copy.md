@@ -69,7 +69,7 @@ So far you can click on a blog on the home page, and the app will redirect you t
         {reviews?.length > 0 && (
           <ul className="list-unstyled">
             {reviews.map((review) => (
-              <ReviewContent review={review} key={review._id} />
+              <ReviewContent key={review._id} review={review} />
             ))}
           </ul>
         )}
@@ -213,7 +213,7 @@ So far you can click on a blog on the home page, and the app will redirect you t
 ### Evaluation
 
 - You can see the detail info of a blog now including list of reviews.
-  ![](../images/X00_blog_detail.png)
+  ![](../images/A00_blog_detail.png)
 
 - You can go back to the home page by clicking the `Back` button.
 

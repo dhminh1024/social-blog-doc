@@ -49,4 +49,6 @@ Let's get started:
 * [User can log out](/doc/client/08_logout.md)
 * [Persist login state on refresh](/doc/client/09_persist_login.md)
 * [The Blog Detail Page](/doc/client/10_blog_detail.md)
+* [User can write review to a blog](/doc/client/11_blog_review.md)
+* [User can react with an emoji to a review or a blog](/doc/client/12_emoji_reaction.md)
 
