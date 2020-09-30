@@ -47,13 +47,15 @@ We should tell the server that the user want to logout. But keep it simple for n
   };
   ```
 
-### The GUI 
+### Integrate with the UI 
 
 - In `PublicNavbar.js`, add:
   ```javascript
   //...
+  import { useDispatch, useSelector } from "react-redux";
   import { authActions } from "redux/actions";
   //..
+  const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(authActions.logout());
   };

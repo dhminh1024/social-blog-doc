@@ -47,4 +47,5 @@ Let's get started:
 * [User can register a new account](/doc/client/06_register.md)
 * [User can log in with an account](/doc/client/07_login.md)
 * [User can log out](/doc/client/08_logout.md)
+* [Persist login state on refresh](/doc/client/09_persist_login.md)
 
