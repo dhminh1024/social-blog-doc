@@ -38,8 +38,10 @@ Let's get started:
 * [Project Structure](/doc/client/01_project_structure.md)
 * [Redux configuration](/doc/client/02_redux_config.md)
 * [React Router and layouts](/doc/client/03_routes_layouts.md)
+* [React Router and layouts](/doc/client/03_routes_layouts.md)
 
 **Main Features**
 
 * [User can see a list of blogs in the home page](/doc/client/04_get_blogs.md)
+* [Redirect on successful async redux action](/doc/client/05_redirect_to.md)
 
