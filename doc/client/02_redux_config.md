@@ -2,6 +2,9 @@
 
 ### Redux store configuration
 
+Reference: [createStore](https://redux.js.org/api/createstore)
+Reference: [compose](https://stackoverflow.com/a/41359312/396324)
+
 - Create `src/redux/store.js`:
   ```javascript
   import { createStore, applyMiddleware } from "redux";
