@@ -10,7 +10,7 @@ $ npm i --save redux react-redux redux-thunk redux-devtools-extension
 $ npm i --save react-router-dom
 $ npm i --save bootstrap react-bootstrap
 $ npm i --save react-markdown react-spinners moment react-moment
-$ npm i --save axios uuid react-toastify
+$ npm i --save axios react-toastify
 $ npm i --save @fortawesome/fontawesome-svg-core @fortawesome/free-brands-svg-icons @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
 ```
 
