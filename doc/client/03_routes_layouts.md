@@ -50,7 +50,7 @@ We start with two "stateless" components first:
 
 ### Create pages, navbar, and side menu
 
-- In `src/containers/`, create `AddEditBlogPage.js`, `BlogDetailPage.js`, `HomePage.js`, `LoginPage.js`, `RegisterPage.js`. In each file, user `rface` to create the component and add a `h1` title according to the page. Example, in `src/containers/HomePage.js`:
+- In `src/containers/`, create `AddEditBlogPage.js`, `BlogDetailPage.js`, `HomePage.js`, `LoginPage.js`, `RegisterPage.js`. In each file, use `rface` to create the component and add a `h1` title according to the page. Example, in `src/containers/HomePage.js`:
 
   ```javascript
   import React from "react";
@@ -120,7 +120,7 @@ We start with two "stateless" components first:
   export default PublicNavbar;
   ```
 
-- Create a new folder called `Admin\` in `src\containers\`. In the `Admin\` folder, create `ProfilePage.js` and `SideMenu.js`:
+- Create a new folder called `Admin\` in `src\containers\`. In the `Admin\` folder, create `ProfilePage.js`, `BlogListPage.js`, `FriendListPage.js`, and `MessengerPage.js`. In each file, use `rface` to create the component and add a `h1` title according to the page. Example:
 
   - `src\containers\Admin\ProfilePage.js`
   ```javascript
@@ -137,7 +137,7 @@ We start with two "stateless" components first:
   export default ProfilePage;
   ```
 
-  - `src\containers\Admin\SideMenu.js`
+  - Create `src\containers\Admin\SideMenu.js`
   ```javascript
   import React from "react";
   import { Nav } from "react-bootstrap";
@@ -155,6 +155,36 @@ We start with two "stateless" components first:
               strict={true}
             >
               Profile
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link
+              as={NavLink}
+              to="/admin/blogs"
+              activeClassName="active"
+              strict={true}
+            >
+              Blogs
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link
+              as={NavLink}
+              to="/admin/friends"
+              activeClassName="active"
+              strict={true}
+            >
+              Friends
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link
+              as={NavLink}
+              to="/admin/messenger"
+              activeClassName="active"
+              strict={true}
+            >
+              Messenger
             </Nav.Link>
           </Nav.Item>
         </div>
@@ -286,6 +316,9 @@ Now we have all of the pieces we need for the structure of our project. Let's pu
   import ProfilePage from "containers/Admin/ProfilePage";
   import SideMenu from "containers/Admin/SideMenu";
   import BlogDetailPage from "containers/BlogDetailPage";
+  import BlogListPage from "containers/Admin/BlogListPage";
+  import FriendListPage from "containers/Admin/FriendListPage";
+  import MessengerPage from "containers/Admin/MessengerPage";
   import PublicNavbar from "containers/PublicNavbar";
   import AlertMsg from "components/AlertMsg";
 
@@ -300,6 +333,7 @@ Now we have all of the pieces we need for the structure of our project. Let's pu
               <AlertMsg />
               <Switch>
                 <Route exact path="/admin/profile" component={ProfilePage} />
+                <Route exact path="/admin/blogs" component={BlogListPage} />
                 <Route exact path="/admin/blogs/:id" component={BlogDetailPage} />
                 <Route exact path="/admin/blog/add" component={AddEditBlogPage} />
                 <Route
@@ -307,6 +341,8 @@ Now we have all of the pieces we need for the structure of our project. Let's pu
                   path="/admin/blog/edit/:id"
                   component={AddEditBlogPage}
                 />
+                <Route exact path="/admin/friends" component={FriendListPage} />
+                <Route exact path="/admin/messenger" component={MessengerPage} />
                 <Route component={NotFoundPage} />
               </Switch>
             </Col>

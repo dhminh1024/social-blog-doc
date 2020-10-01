@@ -51,4 +51,4 @@ Let's get started:
 * [The Blog Detail Page](/doc/client/10_blog_detail.md)
 * [User can write review to a blog](/doc/client/11_blog_review.md)
 * [User can give an emoji reaction to a review or a blog](/doc/client/12_emoji_reaction.md)
-
+* [Authenticated user can create/edit/delete blogs](/doc/client/13_blog_crud.md)
