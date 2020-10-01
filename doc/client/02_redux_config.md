@@ -92,23 +92,21 @@ export default api;
 
 ### Prepare the constants, actions and reducers
 
-Now we seperate the global store into 4 main components:
+Now we separate the global store into 4 parts (or domains). 
 
 * `auth`: stores data of the login flow, e.g. current user info
 * `blog`: stores data about blogs, e.g. list of blogs, selected blog
-* `route`: stores the value of `redirectTo` which is a variable to help us redirect react route in redux environment.
-* `user`: stores data about user, e.g. friend list, user list
+* `route`: stores the value of `redirectTo` which we'll use to redirect the user upon successful login 
+* `user`: stores data about the user, e.g. friend list, user list
 
-For each component, there are some actions come along. Example:
+For each part, there are some associated actions. For example:
 
-* `auth`: login, get current user, etc.
+* `auth`: login, get the current user, etc.
 * `blog`: get list of blogs, get a single blog, etc.
 
-And the actions require different actions type which we will put in some `constants.js` file in `redux/constants/` folder.
+To both reduce typing and mistakes, we'll define constants that hold the names of our actions (such as `GET_BLOGS_REQUEST`) in files. For now, let's just create the files first, and in a future step we'll add the values in. We'll create a new file for each group of actions.
 
-Let's prepare the files first.
-
-**.constants.js**
+**[domain].constants.js**
 
 - In `src/redux/constants/`, create `auth.constants.js`,`blog.constants.js`,`route.constants.js`, and `user.constants.js`. Let them be empty for now.
   ```
@@ -119,7 +117,7 @@ Let's prepare the files first.
       |- user.constants.js
   ```
 
-**.actions.js**
+**[domain].actions.js**
 - In `src/redux/actions/`, create `auth.actions.js`, `blog.actions.js`, `route.actions.js`, `user.actions.js`, and `index.js`:
   ```
   |- actions/
