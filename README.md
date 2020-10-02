@@ -28,7 +28,7 @@ We will use a already deployed backend API which you will learn soon (the server
 https://social-blog-cs.herokuapp.com
 ```
 
-**[API Documentaion](./doc/api_doc.md)**
+**[API Documentation](./doc/api_doc.md)**
 
 Let's get started:
 
