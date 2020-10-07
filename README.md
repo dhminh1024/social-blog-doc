@@ -55,3 +55,21 @@ Let's get started:
 
 ### Server side
 
+**Project setup**
+
+* [Setup with express-generator](/doc/server/00_setup_project.md)
+* [Project structure](/doc/server/01_project_structure.md)
+* [Design the endpoints](/doc/server/03_design_endpoints.md)
+* [Design database schema](/doc/server/04_design_schema.md)
+* [Adding Mongoose middlewares](/doc/server/05_mongoose_middlewares.md)
+* [Create Postman collection](/doc/server/06_create_postman_collection.md)
+
+**Basic Features**
+
+* [Register user account and validators](/doc/server/07_register_user.md)
+* [User can log in](/doc/server/08_login.md)
+* [Blog APIs](/doc/server/09_blog_apis.md)
+* [Review APIs](/doc/server/10_review_apis.md)
+* [Reaction API](/doc/server/10_review_apis.md)
+* [User APIs](/doc/server/12_user_apis.md)
+* [Friendship APIs](/doc/server/13_friendship_apis.md)
