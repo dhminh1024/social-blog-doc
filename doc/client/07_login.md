@@ -175,10 +175,10 @@ export default LoginPage;
 
 - If you try to log in with wrong email or password, an error message should pop up.
 
-![](../images/701_login_fail.png)
+![](./images/701_login_fail.png)
 
 - After login with the account you have created in previous step, you should be lead to the home page and a welcome message should pop up in the top left corner.
 
-![](../images/700_login.png)
+![](./images/700_login.png)
 
 Good job! [Back to instructions](/README.md)

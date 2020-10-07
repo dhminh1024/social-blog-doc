@@ -94,4 +94,4 @@ To focus on the main concepts (ReactJS, Redux, ExpressJS, etc.), we will use pre
   In case of the `avatar` style, you can retrieve it with `styles.avatar` too. However, for the other styles with dashes you need to retrieve them with strings from the object, e.g. `styles["text-grey"]`. 
 
 
-  Good job! [Back to instructions](/README.md)
+Good job! [Back to instructions](/README.md)

@@ -248,6 +248,6 @@ Finally, put everything together in `HomePage.js`:
 
 - The loading spinner will be showed when the page is loaded or you change the page num with the pagination bar.
 
-![](../images/400_get_blogs.png)
+![](./images/400_get_blogs.png)
 
 Good job! [Back to instructions](/README.md)

@@ -1,0 +1,1649 @@
+{
+	"info": {
+		"_postman_id": "e35df84f-e600-4bb4-8175-78826a259239",
+		"name": "blog_test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register user A",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4728b680-7e4d-4773-add5-ba1d68515c6f",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"User A\",\n    \"email\": \"user.a@cs.vn\",\n    \"password\": \"123\",\n    \"avatarUrl\":\"https://lh3.googleusercontent.com/a-/AOh14GhnQ6aJ2YnaevyJzhii-qGws6Y17w-cwWLqF5iP\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register user B",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "83cd37cf-c348-4b01-923b-b8856297abb9",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"User B\",\n    \"email\": \"user.b@cs.vn\",\n    \"password\": \"123\",\n    \"avatarUrl\":\"https://lh3.googleusercontent.com/a-/AOh14GhnQ6aJ2YnaevyJzhii-qGws6Y17w-cwWLqF5iP\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login with user A",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "42990fb5-6989-40cb-bcbe-187e4bba204c",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"  if(pm.response.code === 200){",
+									"    pm.environment.set(\"accessToken\", pm.response.json().data.accessToken)",
+									"    pm.environment.set(\"userIDA\", pm.response.json().data.user._id)",
+									"  }",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjQ1Y2I0MmJkODYzMTEwNmQ3YWRkYTQiLCJpYXQiOjE1OTg3MDYxMjIsImV4cCI6MTU5ODc5MjUyMn0.DQVjwPLVq1dNInLux0deomVgdE6GxQY4Rl4lQfELU0s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"user.a@cs.vn\",\n    \"password\":\"123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get current user info",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f8d74690-86a3-47ab-890b-4fa6f63e5a1a",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users/me",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get list of users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8b8dac9e-6065-4b1f-bccd-a9886e3e3d56",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users?name[$regex]=mi&name[$options]=i&sortBy[email]=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "name[$regex]",
+									"value": "mi"
+								},
+								{
+									"key": "name[$options]",
+									"value": "i"
+								},
+								{
+									"key": "sortBy[email]",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "51f3f5b9-47e7-45f7-953e-c4ac01174380",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"User A\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Blog",
+			"item": [
+				{
+					"name": "Create a blog",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "123215dd-3f43-400d-a084-430bd9c576e7",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"  if(pm.response.code === 200){",
+									"    pm.environment.set(\"blogId\", pm.response.json().data._id)",
+									"  }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjQ1Y2I0MmJkODYzMTEwNmQ3YWRkYTQiLCJpYXQiOjE1OTg0OTQyNDUsImV4cCI6MTU5ODU4MDY0NX0.-ggJDxCCd85Hu9MphKRsVD_EqAvVqeEKSPGSvp9NGug",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\":\"Testing Blog\",\n  \"content\":\"This is a blog\",\n  \"images\":[\n    \"https://res.cloudinary.com/ddawlo98i/image/upload/v1601288885/2KSzKN1obI_jkcfc8.jpg\",\n    \"https://res.cloudinary.com/ddawlo98i/image/upload/v1601288885/EAb16qe3IE_dabom2.jpg\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/blogs",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"blogs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single Blog",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b300d973-e6c0-4af4-aac7-efabe13f34c3",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/blogs/:blog_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"blogs",
+								":blog_id"
+							],
+							"variable": [
+								{
+									"key": "blog_id",
+									"value": "{{blogId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get blogs with pagination",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4c4befc2-8086-4f7a-8744-5a718e1c94fb",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/blogs?page=1&limit=10&title[$regex]=blog&title[$options]=i&sortBy[title]=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"blogs"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "title[$regex]",
+									"value": "blog"
+								},
+								{
+									"key": "title[$options]",
+									"value": "i"
+								},
+								{
+									"key": "sortBy[title]",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a single blog",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9702037a-5ee1-4de3-b3b7-fee3e23dec08",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjQ1Y2I0MmJkODYzMTEwNmQ3YWRkYTQiLCJpYXQiOjE1OTg0OTQyNDUsImV4cCI6MTU5ODU4MDY0NX0.-ggJDxCCd85Hu9MphKRsVD_EqAvVqeEKSPGSvp9NGug ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Update first blog\",\n    \"content\": \"Update content\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/blogs/:blog_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"blogs",
+								":blog_id"
+							],
+							"variable": [
+								{
+									"key": "blog_id",
+									"value": "{{blogId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a single blog",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "45fb721e-2ff4-491f-9c15-ef4192ff08f8",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjQ1Y2I0MmJkODYzMTEwNmQ3YWRkYTQiLCJpYXQiOjE1OTg0OTQyNDUsImV4cCI6MTU5ODU4MDY0NX0.-ggJDxCCd85Hu9MphKRsVD_EqAvVqeEKSPGSvp9NGug",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/blogs/:blog_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"blogs",
+								":blog_id"
+							],
+							"variable": [
+								{
+									"key": "blog_id",
+									"value": "{{blogId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Review",
+			"item": [
+				{
+					"name": "Create a blog for testing review",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "74de8a01-8695-45c8-908d-a97a8abb79e6",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"  if(pm.response.code === 200){",
+									"    pm.environment.set(\"blogId\", pm.response.json().data._id)",
+									"  }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjQ1Y2I0MmJkODYzMTEwNmQ3YWRkYTQiLCJpYXQiOjE1OTg0OTQyNDUsImV4cCI6MTU5ODU4MDY0NX0.-ggJDxCCd85Hu9MphKRsVD_EqAvVqeEKSPGSvp9NGug",
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman."
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\":\"Testing Blog\",\n  \"content\":\"This is a blog\",\n  \"images\":[\n    \"https://res.cloudinary.com/ddawlo98i/image/upload/v1601288885/2KSzKN1obI_jkcfc8.jpg\",\n    \"https://res.cloudinary.com/ddawlo98i/image/upload/v1601288885/EAb16qe3IE_dabom2.jpg\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/blogs",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"blogs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a review",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1be169aa-f6c0-4106-99b8-cae08ee9e82e",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"  if(pm.response.code === 200){",
+									"    pm.environment.set(\"reviewId\", pm.response.json().data._id)",
+									"  }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\":\"I like it\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/reviews/blogs/:blog_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"reviews",
+								"blogs",
+								":blog_id"
+							],
+							"variable": [
+								{
+									"key": "blog_id",
+									"value": "{{blogId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a review",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ccced24b-8cc2-4ba6-bd72-7419ad4e3e3e",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\":\"I really like it\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/reviews/:review_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"reviews",
+								":review_id"
+							],
+							"variable": [
+								{
+									"key": "review_id",
+									"value": "{{reviewId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get reviews of a blog",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c94904dc-1f4e-4882-aa75-81cf726ae241",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/reviews/blogs/:blog_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"reviews",
+								"blogs",
+								":blog_id"
+							],
+							"variable": [
+								{
+									"key": "blog_id",
+									"value": "{{blogId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a review",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2307df30-c41e-4888-9579-32efca64fb9d",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/reviews/:review_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"reviews",
+								":review_id"
+							],
+							"variable": [
+								{
+									"key": "review_id",
+									"value": "{{reviewId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a13b46df-7735-4511-9793-c33cb1087ced",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6244ba7f-c361-44e9-b29d-06b18f1cc3d6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Reaction",
+			"item": [
+				{
+					"name": "Reaction to a blog",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "39c4bfc2-6887-4e8b-a735-4e1108eac0b7",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjQ1Y2I0MmJkODYzMTEwNmQ3YWRkYTQiLCJpYXQiOjE1OTg1NDQ5OTUsImV4cCI6MTU5ODYzMTM5NX0.ebW8FNmibEoTLBMeStqQSNViuQso-oO5UIl1oFUYggI",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"targetType\":\"Blog\",\n    \"targetId\":\"{{blogId}}\",\n    \"emoji\":\"love\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/reactions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"reactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reaction to a blog again",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c409f687-150e-4421-9cc0-8cca1c33f69f",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjQ1Y2I0MmJkODYzMTEwNmQ3YWRkYTQiLCJpYXQiOjE1OTg1NDQ5OTUsImV4cCI6MTU5ODYzMTM5NX0.ebW8FNmibEoTLBMeStqQSNViuQso-oO5UIl1oFUYggI",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"targetType\":\"Blog\",\n    \"targetId\":\"{{blogId}}\",\n    \"emoji\":\"love\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/reactions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"reactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a review for testing reaction",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "35f85eff-37df-4e13-b22a-43b2b1601c95",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"  if(pm.response.code === 200){",
+									"    pm.environment.set(\"reviewId\", pm.response.json().data._id)",
+									"  }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\":\"I like it\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/reviews/blogs/:blog_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"reviews",
+								"blogs",
+								":blog_id"
+							],
+							"variable": [
+								{
+									"key": "blog_id",
+									"value": "{{blogId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reaction to a review",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "23e0312c-22e7-4dc8-99d2-de4567de0233",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjQ1Y2I0MmJkODYzMTEwNmQ3YWRkYTQiLCJpYXQiOjE1OTg1NDQ5OTUsImV4cCI6MTU5ODYzMTM5NX0.ebW8FNmibEoTLBMeStqQSNViuQso-oO5UIl1oFUYggI"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"targetType\":\"Review\",\n    \"targetId\":\"{{reviewId}}\",\n    \"emoji\":\"love\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/reactions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"reactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reaction to a review again",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "527ab563-075e-44f1-994a-6f27bbf0dbce",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjQ1Y2I0MmJkODYzMTEwNmQ3YWRkYTQiLCJpYXQiOjE1OTg1NDQ5OTUsImV4cCI6MTU5ODYzMTM5NX0.ebW8FNmibEoTLBMeStqQSNViuQso-oO5UIl1oFUYggI"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"targetType\":\"Review\",\n    \"targetId\":\"{{reviewId}}\",\n    \"emoji\":\"love\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/reactions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"reactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete the testing review",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e2b62263-7ef4-450c-9dab-b931e148a2ce",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/reviews/:review_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"reviews",
+								":review_id"
+							],
+							"variable": [
+								{
+									"key": "review_id",
+									"value": "{{reviewId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete the testing blog",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "544653b2-b806-4610-b99a-e831fec97331",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjQ1Y2I0MmJkODYzMTEwNmQ3YWRkYTQiLCJpYXQiOjE1OTg0OTQyNDUsImV4cCI6MTU5ODU4MDY0NX0.-ggJDxCCd85Hu9MphKRsVD_EqAvVqeEKSPGSvp9NGug",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/blogs/:blog_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"blogs",
+								":blog_id"
+							],
+							"variable": [
+								{
+									"key": "blog_id",
+									"value": "{{blogId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Friend",
+			"item": [
+				{
+					"name": "Login with user B",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "625b71eb-f842-43d0-9dcc-55366cbb39ff",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"  if(pm.response.code === 200){",
+									"    pm.environment.set(\"accessToken\", pm.response.json().data.accessToken)",
+									"    pm.environment.set(\"userIDB\", pm.response.json().data.user._id)",
+									"  }",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjQ1Y2I0MmJkODYzMTEwNmQ3YWRkYTQiLCJpYXQiOjE1OTg3MDYxMjIsImV4cCI6MTU5ODc5MjUyMn0.DQVjwPLVq1dNInLux0deomVgdE6GxQY4Rl4lQfELU0s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"user.b@cs.vn\",\n    \"password\":\"123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send friend request to user A",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "67fe8cb2-dc21-419f-92cc-a726515f2f27",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/friends/add/:user_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"friends",
+								"add",
+								":user_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "{{userIDA}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get list of sent friend requests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "18de885d-6354-440b-a5aa-cfd84b4f06bc",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/friends/add",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"friends",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login with user A",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "27a2542a-f224-49ae-95f1-20115266cf59",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"  if(pm.response.code === 200){",
+									"    pm.environment.set(\"accessToken\", pm.response.json().data.accessToken)",
+									"    pm.environment.set(\"userIDA\", pm.response.json().data.user._id)",
+									"  }",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjQ1Y2I0MmJkODYzMTEwNmQ3YWRkYTQiLCJpYXQiOjE1OTg3MDYxMjIsImV4cCI6MTU5ODc5MjUyMn0.DQVjwPLVq1dNInLux0deomVgdE6GxQY4Rl4lQfELU0s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"user.a@cs.vn\",\n    \"password\":\"123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get list of received friend requests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8fb35c88-b43b-470a-bec4-f15794296753",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/friends/manage",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"friends",
+								"manage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Decline the friend request from user B",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3407ff04-0ebd-4f26-9687-3b0721f5e899",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/friends/manage/:user_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"friends",
+								"manage",
+								":user_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "{{userIDB}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send friend request to user B",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bf580325-b7ec-4d86-8a61-8b767eb0c3c7",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/friends/add/:user_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"friends",
+								"add",
+								":user_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "{{userIDB}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login with user B",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3016d134-083a-40b7-89fd-43b3258c6fc3",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"  if(pm.response.code === 200){",
+									"    pm.environment.set(\"accessToken\", pm.response.json().data.accessToken)",
+									"    pm.environment.set(\"userIDB\", pm.response.json().data.user._id)",
+									"  }",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjQ1Y2I0MmJkODYzMTEwNmQ3YWRkYTQiLCJpYXQiOjE1OTg3MDYxMjIsImV4cCI6MTU5ODc5MjUyMn0.DQVjwPLVq1dNInLux0deomVgdE6GxQY4Rl4lQfELU0s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"user.b@cs.vn\",\n    \"password\":\"123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accept Friend request from user A",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "793e8ac1-062a-4970-98bb-7b2195187728",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/friends/manage/:user_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"friends",
+								"manage",
+								":user_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "{{userIDA}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get list of friends",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "79789f77-f148-455e-8ded-f992c5832e69",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/friends",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"friends"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove the friendship with user A",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6d0e93db-27ad-4cca-a341-a082a409f086",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"  pm.response.to.have.status(200); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/friends/:user_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"friends",
+								":user_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "{{userIDA}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "6926b411-cfed-4ab2-b350-3ab29e1a18df",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7515f861-56de-43d8-a868-f3d756960e85",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "50bbd5dc-9f1a-47b4-b438-3392808df91f",
+			"key": "url",
+			"value": "http://localhost:5000"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

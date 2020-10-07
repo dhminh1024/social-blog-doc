@@ -169,6 +169,6 @@ User can write reviews to a blog in the blog detail page.
 - You can submit reviews to a blog
 - When you hit enter to submit, the submit button turns into loading circle that prevents you to keep hitting enter and send the same review multiple times.
 
-![](../images/B00_review.png)
+![](./images/B00_review.png)
 
 Good job! [Back to instructions](/README.md)

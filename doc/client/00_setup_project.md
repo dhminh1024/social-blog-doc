@@ -57,10 +57,6 @@ export default App;
   **Add** `.env` to the `.gitignore` file
   **Note**: everytime you change something in `.env` you have to restart the app (`npm start`)
 
-- Run `npm start` in the terminal. You should see "My new React App" in a "bootstrap" font:
-
-  ![](../images/001_init_project.png)
-
 **Absolute imports**
 
 - You can configure your application to support importing modules using absolute paths. This can be done by configuring a `jsconfig.json` in the root of your project.
@@ -98,6 +94,12 @@ At the Project Workspace Settings file (`Ctrl+Shift+P` -> Preferences: Open Sett
   - Copy your icon file to `/public/` e.g. `icon.png`
   - Go to `/puclic/index.html` replace `<link rel="icon" href="%PUBLIC_URL%/favicon.ico" />` with `<link rel="icon" href="%PUBLIC_URL%/icon.png" />`
   - In `/puclic/index.html`, change `<title>React App</title>` to `<title>your_project_name</title>`
+
+### Evaluation
+
+- Run `npm start` in the terminal. You should see "My new React App" in a "bootstrap" font:
+
+  ![](./images/001_init_project.png)
 
 
 Good job! [Back to instructions](/README.md)

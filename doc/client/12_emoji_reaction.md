@@ -255,6 +255,6 @@ export default ReviewList;
 - A user can give only one emoji reaction. So click on another emoji next time will remove the previous one.
 - One you click on an emoji, the icons will be temporary locked to avoid multiple clicking.
 
-![](../images/C00_emoji_reaction.png)
+![](./images/C00_emoji_reaction.png)
 
 Good job! [Back to instructions](/README.md)

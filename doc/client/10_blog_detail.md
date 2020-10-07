@@ -132,7 +132,7 @@ So far you can click on a blog on the home page, and the app will redirect you t
           <Button onClick={handleGoBackClick}>
             <FontAwesomeIcon icon="chevron-left" size="1x" /> Back
           </Button>
-          {currentUser?._id === blog?.author?._id ? (
+          {blog?._id && currentUser?._id === blog?.author?._id ? (
             <Link to={`/blog/edit/${blog._id}`}>
               <Button variant="primary">
                 <FontAwesomeIcon icon="edit" size="1x" /> Edit
@@ -213,7 +213,7 @@ So far you can click on a blog on the home page, and the app will redirect you t
 ### Evaluation
 
 - You can see the detail info of a blog now including list of reviews.
-  ![](../images/A00_blog_detail.png)
+  ![](./images/A00_blog_detail.png)
 
 - You can go back to the home page by clicking the `Back` button.
 

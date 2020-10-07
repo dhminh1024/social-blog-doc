@@ -403,19 +403,19 @@ Now we have all of the pieces we need for the structure of our project. Let's pu
 ### Evaluation
 
 - Open your browser `localhost:3000`:
-  ![](../images/300_home.png)
+  ![](./images/300_home.png)
 
 - Click on `Register` and `Login` should lead you to the register page and login page:
-  ![](../images/301_register.png)
-  ![](../images/302_login.png)
+  ![](./images/301_register.png)
+  ![](./images/302_login.png)
 
 - Try to go to `localhost:3000/not_found`:
-  ![](../images/303_not_found.png)
+  ![](./images/303_not_found.png)
 
 - Try to go to `localhost:3000/admin/profile`, you should be redirect to the Login page, because the `/admin` route is protected.
 
 - Go to `src/redux/reducers/auth.reducer.js`, change `isAuthenticated` in `initialState` from `null` to `true`. Try to go to `localhost:3000/admin/profile` again, now it should work:
-  ![](../images/304_admin.png)
+  ![](./images/304_admin.png)
 
 - Also test the other routes:
   * `/blog/add`

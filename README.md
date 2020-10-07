@@ -39,7 +39,7 @@ Let's get started:
 * [Redux configuration](/doc/client/02_redux_config.md)
 * [React Router and layouts](/doc/client/03_routes_layouts.md)
 
-**Main Features**
+**Basic Features**
 
 * [User can see a list of blogs in the home page](/doc/client/04_get_blogs.md)
 * [Redirect on successful async redux action](/doc/client/05_redirect_to.md)
@@ -51,3 +51,7 @@ Let's get started:
 * [User can write review to a blog](/doc/client/11_blog_review.md)
 * [User can give an emoji reaction to a review or a blog](/doc/client/12_emoji_reaction.md)
 * [Authenticated user can create/edit/delete blogs](/doc/client/13_blog_crud.md)
+
+
+### Server side
+

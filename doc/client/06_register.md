@@ -245,6 +245,6 @@ export default RegisterPage;
 
 - After successfully create an account, you should be redirect to the login page. A success message will pop up in the top left of the window.
 
-![](../images/600_register.png)
+![](./images/600_register.png)
 
 Good job! [Back to instructions](/README.md)

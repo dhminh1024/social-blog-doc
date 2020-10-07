@@ -297,15 +297,15 @@ We are going to use only one page for create, edit and also delete, which is `Ad
 ### Evaluation
 
 - On the home page, click on the button "Write now" should lead you to the Add Blog page. Fill in the title and content:
-  ![](../images/D00_create_blog.png)
+  ![](./images/D00_create_blog.png)
 
 - Submit the blog, you should be redirected **back** (to the home page).
-  ![](../images/D01_new_blog.png)
+  ![](./images/D01_new_blog.png)
 
 - You should see the blog that you have just created. Open the blog, you should see a button `Edit` in the top right corner, because you are the owner of the blog.
-  ![](../images/D02_blog_detail.png)
+  ![](./images/D02_blog_detail.png)
 
 - Click the `Edit` button, you should be redirected to Edit Blog page where you can change the title or content of the blog. Submit your change then the app should lead you **back** (to the blog detail page). If you delete the blog, you should find yourself in the home page afterwards.
-  ![](../images/D03_edit_blog.png)
+  ![](./images/D03_edit_blog.png)
 
 Good job! [Back to instructions](/README.md)

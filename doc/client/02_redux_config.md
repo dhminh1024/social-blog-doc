@@ -27,7 +27,8 @@
   ReactDOM.render(
     <Provider store={store}>
       <App />
-    </Provider>
+    </Provider>,
+    document.getElementById("root")
   )
   ```
 
@@ -275,6 +276,6 @@ Let's prepare the files first.
 
 - Open Chrome DevTools, click on the tab `Redux`, you should see all of the reducers that you have just created:
 
-  ![](../images/200_redux.png)
+  ![](./images/200_redux.png)
 
 Good job! [Back to instructions](/README.md)
